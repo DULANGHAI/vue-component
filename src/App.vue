@@ -1,12 +1,20 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <ul v-for="(item, index) in $router.options.routes" :key="index">
+        <li>
+          <router-link :to="item.path">{{item.name}}</router-link>
+        </li>
+      </ul>
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+export default {};
+</script>
+
 
 <style lang="scss">
 #app {
@@ -25,5 +33,12 @@
       color: #42b983;
     }
   }
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
 }
 </style>
